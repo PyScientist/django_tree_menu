@@ -5,6 +5,7 @@ environ.Env.read_env()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 env_file = os.path.join(BASE_DIR, ".env")
+env.read_env(env_file)
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
@@ -18,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tree_menu.apps.MenuConfig',
 ]
 
 MIDDLEWARE = [
@@ -50,11 +52,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_tree_menu.wsgi.application'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'sqlite_tree_menu.db',
     }
 }
 
