@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tree_menu.apps.MenuConfig',
+    'tree_menu.apps.TreeMenuConfig',
 ]
 
 MIDDLEWARE = [
@@ -37,7 +37,7 @@ ROOT_URLCONF = 'django_tree_menu.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -49,6 +49,10 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.load_template_source',
+ )
 
 WSGI_APPLICATION = 'django_tree_menu.wsgi.application'
 
